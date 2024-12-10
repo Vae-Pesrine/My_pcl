@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+set(CMAKE_CXX_STANDARD 14)
+project(cloud_viewer)
+
+set (EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build)
+find_package(PCL 1.2 REQUIRED)
+
+include_directories(${PCL_INCLUDE_DIRS})
+link_directories(${PCL_LIBRARY_DIRS})
+add_definitions(${PCL_DEFINITIONS})
+
+add_executable(random_sample_consensus random_sample_consensus.cpp)
+target_link_libraries(random_sample_consensus ${PCL_LIBRARIES})
+
+
